@@ -1,0 +1,91 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav-sticky);
+  height: 60px;
+  background-color: color-mix(in srgb, var(--background) 80%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-8);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+.logoIcon {
+  color: var(--primary);
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.navLink {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  padding: var(--spacing-2) 0;
+  position: relative;
+  transition: color var(--animation-duration-fast) ease;
+}
+
+.navLink:hover {
+  color: var(--foreground);
+}
+
+.navLink.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transition: transform var(--animation-duration-normal) ease;
+}
+
+.navLink.active::after {
+  transform: scaleX(1);
+}
+
+.main {
+  flex-grow: 1;
+}
